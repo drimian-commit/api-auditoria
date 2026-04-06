@@ -2,7 +2,8 @@ import logging
 
 from fastapi import APIRouter, HTTPException
 
-from app.domains.emergencias.schemas import AuditoriaEmergenciasRequest, AuditoriaEmergenciasResponse
+from app.core.schemas import AuditoriaRequest
+from app.domains.emergencias.schemas import AuditoriaEmergenciasResponse
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +38,7 @@ router = APIRouter()
         500: {"description": "Error interno del servidor"},
     },
 )
-async def auditar_atencion_emergencias(data: AuditoriaEmergenciasRequest):
+async def auditar_atencion_emergencias(data: AuditoriaRequest):
     from app.domains.emergencias.service import auditar_emergencia
 
     try:

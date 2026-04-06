@@ -7,7 +7,8 @@ import litellm
 
 from app.config import get_settings
 from app.domains.urgencias.repository import obtener_detalle_atencion, obtener_informacion_basica
-from app.domains.urgencias.schemas import AuditoriaUrgenciasRequest, AuditoriaUrgenciasResponse
+from app.core.schemas import AuditoriaRequest
+from app.domains.urgencias.schemas import AuditoriaUrgenciasResponse
 
 logger = logging.getLogger(__name__)
 
@@ -342,12 +343,12 @@ def _llamar_llm(prompt_usuario: str) -> dict:
     raise RuntimeError("Fallaron todos los modelos e intentos de auditoría LLM")
 
 
-def auditar_urgencia(data: AuditoriaUrgenciasRequest) -> AuditoriaUrgenciasResponse:
+def auditar_urgencia(data: AuditoriaRequest) -> AuditoriaUrgenciasResponse:
     """Ejecuta la auditoría completa de un registro individual de urgencias."""
 
     gestion = data.cuenta_gestion
     internacion = data.cuenta_internacion
-    cuenta_id = data.cuenta_id
+    cuenta_id = 1
 
     # 1. Obtener información básica de la BD
     info = obtener_informacion_basica(gestion, internacion)

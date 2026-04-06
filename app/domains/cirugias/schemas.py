@@ -2,16 +2,6 @@ from pydantic import BaseModel, Field
 from typing import List, Optional
 
 
-# --- Request: solo los IDs de la cuenta ---
-
-class AuditoriaCirugiasRequest(BaseModel):
-    cuenta_gestion: int = Field(description="Año de gestión de la cuenta (ej: 2025)")
-    cuenta_internacion: int = Field(description="Número de internación (ej: 12223)")
-    cuenta_id: int = Field(default=1, description="ID de la cuenta (por defecto: 1)")
-
-    model_config = {"json_schema_extra": {"examples": [{"cuenta_gestion": 2026, "cuenta_internacion": 45564}]}}
-
-
 # --- Response: resultado de la auditoría quirúrgica ---
 
 class AuditoriaCirugiasResponse(BaseModel):
