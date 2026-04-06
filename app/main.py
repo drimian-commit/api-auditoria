@@ -15,7 +15,25 @@ load_dotenv()
 settings = get_settings()
 os.environ["OPENROUTER_API_KEY"] = settings.openrouter_api_key
 
-app = FastAPI(title="API Auditoria", version="0.1.0")
+app = FastAPI(
+    title="API Auditoria Medica",
+    version="0.1.0",
+    description=(
+        "API para auditoría automatizada del acto médico en Clínica Foianini.\n\n"
+        "Evalúa registros individuales de atención contra guías clínicas internacionales "
+        "(WHO, AHA, NICE, ERC, ACS, ACEP, OMS Cirugía Segura) utilizando IA (Claude via OpenRouter).\n\n"
+        "## Dominios\n\n"
+        "| Dominio | Sector BD | Descripción |\n"
+        "|---------|-----------|-------------|\n"
+        "| **Urgencias** | Sector 50 | Casos de menor complejidad, tiempos flexibles |\n"
+        "| **Emergencias** | Sector 3 | Casos de alta complejidad, tiempos estrictos |\n"
+        "| **Cirugías** | Sector -1 | Checklist OMS: Sign In / Time Out / Sign Out |\n\n"
+        "## Uso\n\n"
+        "Todos los endpoints de auditoría reciben solo `cuenta_gestion` + `cuenta_internacion`. "
+        "El sistema consulta la BD automáticamente para obtener el historial clínico completo."
+    ),
+    contact={"name": "Sistema de Auditoría CAF", "email": "no.responder@correo-caf.com"},
+)
 
 register_exception_handlers(app)
 

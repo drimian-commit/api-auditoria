@@ -9,6 +9,8 @@ class AuditoriaUrgenciasRequest(BaseModel):
     cuenta_internacion: int = Field(description="Número de internación (ej: 140954)")
     cuenta_id: int = Field(default=1, description="ID de la cuenta (por defecto: 1)")
 
+    model_config = {"json_schema_extra": {"examples": [{"cuenta_gestion": 2026, "cuenta_internacion": 45588}]}}
+
 
 # --- Response: resultado de la auditoría ---
 

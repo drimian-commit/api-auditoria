@@ -4,8 +4,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      - "8710:8710"
     environment:
       - APP_NAME=API Auditoria
-      - DEBUG=false
+      - DEBUG=true
     restart: unless-stopped
