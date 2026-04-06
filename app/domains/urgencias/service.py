@@ -62,6 +62,10 @@ REGLAS DE INTERPRETACIÓN:
 - La sección de SOLICITUDES es la fuente de verdad sobre qué ordenó el médico
 - La sección de RESULTADOS solo muestra los que ya tienen valores
 
+Ejemplo correcto:
+- Si ves "Estudio: UROCULTIVO | Fecha solicitud: 2025-12-01" en SOLICITUDES → SÍ se solicitó
+- Aunque no aparezca en RESULTADOS (porque tarda días), el médico SÍ cumplió con solicitarlo
+
 Solo evalúa como "no solicitado" si el estudio NO aparece en NINGUNA de las dos secciones.
 
 ⚠️ IMPORTANTE - INTERPRETACIÓN DE ESTUDIOS DE IMAGEN:
@@ -76,11 +80,16 @@ REGLAS DE INTERPRETACIÓN:
 - La sección de SOLICITUDES DE IMAGEN es la fuente de verdad sobre qué ordenó el médico
 - La sección de ESTUDIOS DE IMAGEN solo muestra los que ya tienen informe radiológico
 
+Ejemplo correcto:
+- Si ves "Estudio: Radiografía Torax Posteroanterior | Fecha solicitud: 2025-12-03" en SOLICITUDES → SÍ se solicitó
+- Aunque no aparezca en ESTUDIOS DE IMAGEN (porque no tiene informe), el médico SÍ cumplió con solicitarlo
+
 Solo evalúa como "no solicitado" si el estudio NO aparece en NINGUNA de las dos secciones de imagen.
 
 ⚠️ IMPORTANTE - INTERPRETACIÓN DE TIEMPOS DE OBSERVACIÓN E INTERNACIÓN:
 - Si el paciente fue INTERNADO (pasó a piso/hospitalización), la observación CONTINÚA en internación
 - NO penalices "tiempo insuficiente en urgencias" si hubo decisión de internación
+- Ejemplo: Guías recomiendan 6 horas de observación → 2h en urgencias + internación = CUMPLE (observación continúa)
 - La internación es una decisión CORRECTA para observación prolongada
 - Solo evalúa el tiempo en urgencias si el paciente fue dado de ALTA a domicilio directamente
 - Frases clave que indican internación: "INDICA INTERNACIÓN", "PASA A PISO", "TRASLADO A PISO", "INGRESA A PISO"
