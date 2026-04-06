@@ -50,4 +50,4 @@ async def auditar_atencion_emergencias(data: AuditoriaRequest):
         raise HTTPException(status_code=502, detail=str(e))
     except Exception as e:
         logger.error(f"Error inesperado en auditoría: {e}")
-        raise HTTPException(status_code=500, detail=f"Error interno: {type(e).__name__}: {e}")
+        raise HTTPException(status_code=500, detail="Error interno al procesar la auditoría")
