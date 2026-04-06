@@ -56,6 +56,7 @@ def obtener_informacion_basica(
     query = f"""
     SELECT
         pe.PersonaNumero AS id_persona_paciente,
+        pe.PacienteEvolucionNroIntId AS cuenta_id,
         MIN(pe.PacienteEvolucionFechaHora) AS fecha_atencion,
         (SELECT u2.UsuarioPersonaCodigo
          FROM pacienteevolucion pe2
@@ -81,6 +82,7 @@ def obtener_informacion_basica(
       AND pe.PacienteEvolucionBFecha = '1000-01-01 00:00:00'
     GROUP BY
         pe.PersonaNumero,
+        pe.PacienteEvolucionNroIntId,
         pac.PersonaNombreCompleto,
         pe.PacienteEvolucionGestion,
         pe.PacienteEvolucionNroInter

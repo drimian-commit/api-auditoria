@@ -430,7 +430,6 @@ def auditar_cirugia(data: AuditoriaRequest) -> AuditoriaCirugiasResponse:
 
     gestion = data.cuenta_gestion
     internacion = data.cuenta_internacion
-    cuenta_id = 1
 
     # 1. Obtener información básica de la BD
     info = obtener_informacion_cirugia(gestion, internacion)
@@ -441,11 +440,11 @@ def auditar_cirugia(data: AuditoriaRequest) -> AuditoriaCirugiasResponse:
         )
 
     id_paciente = info["id_paciente"]
+    cuenta_id = info.get("cuenta_id", 1)
     nombre_paciente = info["nombre_paciente"]
     cirujano = info["cirujano"] or "No identificado"
     id_cirujano = info["id_cirujano"] or 0
     fecha_cirugia = str(info["fecha_cirugia"])
-    cuenta_id = info.get("cuenta_id", cuenta_id)
 
     # 2. Obtener detalle clínico completo
     detalle = obtener_detalle_cirugia(id_paciente, gestion, internacion, cuenta_id)

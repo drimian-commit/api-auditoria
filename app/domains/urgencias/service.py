@@ -348,7 +348,6 @@ def auditar_urgencia(data: AuditoriaRequest) -> AuditoriaUrgenciasResponse:
 
     gestion = data.cuenta_gestion
     internacion = data.cuenta_internacion
-    cuenta_id = 1
 
     # 1. Obtener información básica de la BD
     info = obtener_informacion_basica(gestion, internacion)
@@ -359,6 +358,7 @@ def auditar_urgencia(data: AuditoriaRequest) -> AuditoriaUrgenciasResponse:
         )
 
     persona_numero = info["id_persona_paciente"]
+    cuenta_id = info.get("cuenta_id", 1)
     nombre_paciente = info["nombre_paciente"]
     nombre_medico = info["nombre_medico"]
     id_medico = info["id_medico"]
