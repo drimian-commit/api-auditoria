@@ -28,6 +28,7 @@ def _get_connection() -> pymysql.Connection:
         database=settings.mysql_database,
         cursorclass=DictCursor,
         connect_timeout=10,
+        ssl_disabled=True,
     )
     with conn.cursor() as cursor:
         cursor.execute("SET SESSION group_concat_max_len = 10485760")
