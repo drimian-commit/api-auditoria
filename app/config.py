@@ -17,7 +17,7 @@ class Settings(BaseSettings):
     default_model: str = "anthropic/claude-sonnet-4-5-20250514"
     fallback_model: str = "anthropic/claude-sonnet-4-20250514"
 
-    model_config = {"env_file": ".env"}
+    model_config = {"env_file": ".env", "extra": "ignore"}
 
 
 def get_settings() -> Settings:
